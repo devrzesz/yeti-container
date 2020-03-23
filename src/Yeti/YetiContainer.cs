@@ -43,6 +43,10 @@ namespace Yeti
 
             var ctors = actual_type.GetConstructors();
 
+            if (ctors.Length > 1)
+            {
+                throw new ComponentHasMultipleConstructorException(actual_type);
+            }
             var ctor = ctors.First();
 
             IEnumerable<Type> dependency_types = ctor.GetParameters()
@@ -55,7 +59,26 @@ namespace Yeti
 
             var instance = Activator.CreateInstance(actual_type);
 
-            return (T)instance;
+            return instance;
+        }
+
+
+    }
+
+    public abstract class CompositionException : Exception
+    {
+        public readonly Type Type;
+
+        public CompositionException(Type type)
+        {
+            Type = type;
+        }
+    }
+
+    public class ComponentHasMultipleConstructorException : CompositionException
+    {
+        public ComponentHasMultipleConstructorException(Type type) : base(type)
+        {
         }
     }
 }

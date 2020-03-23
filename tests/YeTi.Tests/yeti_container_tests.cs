@@ -34,6 +34,20 @@ namespace YeTi.Tests
             resolved_object.ShouldBeOfType<TestImplementationWithDepenedncy>();
         }
 
+        [Fact]
+        public void throw_when_components_has_multiple_ctor()
+        {
+            var container = new YetiContainer();
+
+            container.Register<Dependecy, Dependecy>();
+            container.Register<ITestInterface, TestImplementationWithMultipleCtor>();
+
+            var exc = Record.Exception(() => container.Resolve<ITestInterface>());
+
+            exc.ShouldNotBeNull();
+            exc.ShouldBeOfType<ComponentHasMultipleConstructorException>();
+        }
+
         public interface ITestInterface
         {
         }
@@ -55,5 +69,19 @@ namespace YeTi.Tests
             }
 
         }
+
+        public class TestImplementationWithMultipleCtor : ITestInterface
+        {
+            public TestImplementationWithMultipleCtor()
+            {
+
+            }
+
+            public TestImplementationWithMultipleCtor (Dependecy dependecy)
+            {
+
+            }
+
+        }
+        }
     }
-}
