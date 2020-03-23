@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Yeti
 {
+    
     public class YetiContainer
     {
         readonly Dictionary<Type, Type> _registrations = new Dictionary<Type, Type>();
@@ -19,20 +20,7 @@ namespace Yeti
         {
             var requested_type = typeof(T);
 
-            Type actual_type = _registrations[requested_type];
-
-            var ctors = actual_type.GetConstructors();
-
-            var ctor = ctors.First();
-
-            IEnumerable<Type> dependency_types = ctor.GetParameters()
-                .Select(x => x.ParameterType);
-
-
-
-            var instance = Activator.CreateInstance(actual_type);
-
-            return (T)instance;
+            return (T) Resolve(requested_type);
         }
 
         object Resolve(Type type)
@@ -57,7 +45,7 @@ namespace Yeti
                 .ToArray();
 
 
-            var instance = Activator.CreateInstance(actual_type);
+            var instance = Activator.CreateInstance(actual_type, dependencies);
 
             return instance;
         }
