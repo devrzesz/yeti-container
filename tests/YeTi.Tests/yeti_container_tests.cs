@@ -14,14 +14,11 @@ namespace YeTi.Tests
         [Fact]
         public void resolves_registered_components()
         {
-            // Arange
             var container = new YetiContainer();
             container.Register<ITestInterface, TestImplementation>();
 
-            //Act
             var resolved_object = container.Resolve<ITestInterface>();
 
-            // Assert 
             resolved_object.ShouldBeOfType<TestImplementation>();
 
         } 
