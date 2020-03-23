@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29509.3
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Yeti", "src\Yeti\Yeti.csproj", "{D86B072E-EBD4-4E75-8D76-09F9979EDDAB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YeTi.Tests", "tests\YeTi.Tests\YeTi.Tests.csproj", "{9C091999-7005-40D7-B04F-8D27509D8891}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D86B072E-EBD4-4E75-8D76-09F9979EDDAB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D86B072E-EBD4-4E75-8D76-09F9979EDDAB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D86B072E-EBD4-4E75-8D76-09F9979EDDAB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D86B072E-EBD4-4E75-8D76-09F9979EDDAB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9C091999-7005-40D7-B04F-8D27509D8891}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9C091999-7005-40D7-B04F-8D27509D8891}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9C091999-7005-40D7-B04F-8D27509D8891}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9C091999-7005-40D7-B04F-8D27509D8891}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C62D9FD0-A824-4100-A7E8-80DF87D9F6A4}
+	EndGlobalSection
+EndGlobal
